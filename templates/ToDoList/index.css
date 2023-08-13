@@ -1,0 +1,103 @@
+h1 {
+    text-align: left;
+}
+
+.finish {
+    text-decoration: line-through;
+}
+
+.div_task {
+    border-color: black;
+    border-style: solid;
+    border-width: 2PX;
+    border-radius: 2% ;
+    color: white;
+}
+
+.form_task {
+    display: flex;
+}
+
+.div_safe {
+    background-color: green;
+}
+
+.div_warn {
+    background-color: darkorange;
+}
+
+.div_danger {
+    background-color: red;
+}
+
+.div_grey {
+    background-color: darkgrey;
+}
+
+.div_check {
+    background-color: black;
+}
+
+#div_center {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    width: 50%;
+}
+
+#div_space {
+    height: 20px;
+}
+
+#div_littlespace {
+    height: 10px;
+}
+
+input[type="submit"] {
+    border-radius: 5px;
+    width: auto;
+    min-height: 32px;
+    border-width: 1px;
+    border-color: darkgrey;
+}
+
+.delete {
+    background-color: red;
+}
+
+.update {
+    background-color: deepskyblue;
+}
+
+.add_task {
+    background-color: deepskyblue;
+}
+
+#container {
+    display: flex;
+    overflow: hidden;
+    margin: 2%;
+}
+
+#pub {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#div_pub_right {
+    max-width: 25%;
+    margin-left: 50px;
+}
+
+#div_pub_left {
+    max-width: 25%;
+    margin-right: 50px;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+.form_button {
+    margin-left: auto;
+}

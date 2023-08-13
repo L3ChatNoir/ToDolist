@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>ToDoList</title>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link href="{% static './index.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <div id="div_pub_left">
+            <a href="http://www.webuyskin.com" target="_blank"><img src="{% static './img/WE_BUY_SKIN_FRENCH.png' %}" alt="PUB" id="pub"></a>
+        </div>
+
+
+        <div id="div_center">
+        <h1>To-do !</h1>
+        <div id="div_space"></div>
+        <form action="create_task" method="GET">
+            <input type="text" name="name" placeholder="Add Tasks" maxlength="100">
+            <input type="date" name="deadtask">
+            <input type="submit" value="submit" class="add_task">
+        </form>
+        <div id="div_space"></div>
+        {% if task_list %}
+            {% for task in task_list %}
+                <!-- give css class if checkbox check or deadline pass or not -->
+                <div class="div_task {% if task.do %} div_check {% else %} {% if task.deadline > today %} div_safe {% elif task.deadline == today %} div_warn {% elif   task.deadline < today %} div_danger {% else %} div_grey {% endif %} {% endif %}">
+                    <form action="/task_action" method="get" class="form_task">
+                    <div class="">
+                        <input type="hidden" name="task_id" value="{{task.idtask}}">
+                        <input type="checkbox" name="do" value="check" onclick="this.form.submit()" {% if task.do %} checked {% endif %}>
+                        <label {% if task.do %} class="finish" {% endif %}>{{task.name}}{% if task.deadline != None %}, Faire avant: {{task.deadline}} {% endif %}</label>
+                    </div>
+                        <div class="form_button">
+                        <input type="submit" name="action" value="update" class="update">
+                        <input type="submit" name="action" value="delete" class="delete" onclick="return confirm('Are you sure you want to delete this task?')">
+                        </div>
+                    </form>
+                </div>
+                <div id="div_littlespace"></div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div id="div_pub_right">
+            <a href="http://www.webuyskin.com" target="_blank"><img src="{% static './img/WE_BUY_SKIN_FRENCH.png' %}" alt="PUB" id="pub"></a>
+        </div>
+    </div>
+</body>

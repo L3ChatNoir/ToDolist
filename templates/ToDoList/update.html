@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>ToDoList</title>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link href="{% static './index.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <div id="div_pub_left">
+            <a href="http://www.webuyskin.com" target="_blank"><img src="{% static './img/WE_BUY_SKIN_FRENCH.png' %}" alt="PUB" id="pub"></a>
+        </div>
+
+        <div id="div_center">
+            <h1> Update </h1>
+            <div id="div_space"></div>
+            <form action="update" method="get">
+                <input type="hidden" name="id" value="{{task.idtask}}">
+                <input type="text" name="name" value="{{task.name}}" placeholder="Add Tasks" maxlength="100">
+                <input type="date" name="deadtask" value="{{ date }}">
+                <input type="submit" value="submit" class="add_task">
+            </form>
+        </div>
+
+        <div id="div_pub_right">
+            <a href="http://www.webuyskin.com" target="_blank"><img src="{% static './img/WE_BUY_SKIN_FRENCH.png' %}" alt="PUB" id="pub"></a>
+        </div>
+    </div>
+</body>
